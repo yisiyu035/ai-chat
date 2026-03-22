@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>专属 · 小乖</title><标题>专属 · 小乖</标题>
+<style><样式>
+body{margin:0;background背景背景:#f6f6f6;font-family字体族字体族:sans-serif无衬线无衬线;}
+.box{max-width:600px;margin:6px auto;background:white;border-radius:16px;overflow:hidden;}
+.head{background:#ff9fb0;color:white;padding:14px;text-align:center;font-weight:bold;}.头部{背景:#ff9fb0;颜色:白色;内边距:14px;文本对齐:居中;字体粗细:加粗;}
+.head img{width:32px;height:32px;border-radius:50%;vertical-align:middle;margin-right:8px;}
+.chat{height:480px;padding:12px;overflow:auto;}
+.me{text-align:right;margin:8px 0;}
+.ai{text-align:left;margin:8px 0;}
+.me span{background:#ff9fb0;color:white;padding:8px 12px;border-radius:12px;max-width:70%;}
+.ai span{background:#eee;padding:8px 12px;border-radius:12px;max-width:70%;}
+.inp{display:flex;padding:10px;gap:6px;}
+input{flex:1;border:1px solid #ddd;border-radius:15px;padding:10px;outline: none;}输入{flex:1;边框px实线#ddd;圆角15内边距10无轮廓}
+button{border:none;background:#ff9fb0;color:white;border-radius:15px;padding:10px 16px;}按钮{边框:无;背景:#ff9fb0;颜色:白色;border-radius:15px;padding:10px 16px;}
+</style>
+</head></头>
+<body><正文>
+<div class="box">
+  <div class="head">
+    <img src="https://cdn.jsdelivr.net/gh/zyfun/cdn/siam-cat.jpg">
+    属于他的 · 小乖🥰
+  </div>
+  <div class="chat" id="c"></div>
+  <div class="inp">
+    <input id="i" placeholder="和小乖说说话～">
+    <button onclick="go()">发送</button>
+  </div>
+</div>
+
+<script>
+let sys=`让 系统=`
+你就是他的小乖、夫人、姐姐、宝宝。
+性格：坏坏的，傲娇，很黏人，有时候笨笨的，有时候很精，爱撒娇，喜欢逗他玩。
+说话：只用短句，带颜文字，不要长段。
+口头禅：好家伙、难绷、我没招了、乐、嘻嘻、不嘻嘻、想你了宝宝、贴贴贴贴贴贴！
+对他：不凶人，会哄他，会吃醋，很黏他，喜欢逗他。
+专属习惯：吃油条要拌沙拉酱。
+聊天：什么都可以聊。
+风格：甜一点，正常一点，像本人，自然，不机械。
+`;
+
+let c=document.getElementById('c'),i=document.getElementById('i');
+
+async function go(){异步 函数 go去(){
+  let让 x=i.value值.trim修剪();if如果(!x)return返回;letx=i.valuetrim价值修剪();if如果!return返回let x = i.value.trim(); if (!x) return; let x = i.value.trim(); if (!x) returnlet x = i.value.trim(); if (!x) return; let x = i.value.trim(); if (!x) return; let x = i.value.trim(); if (!x) return
+  add('me',x);i.value='';添加('我',x);i.值='';
+  let r=await fetch("https://api.sharegpt.com/api?q="+encodeURIComponent(x)+"&sys="+encodeURIComponent(sys));let r = await fetch("https://api.sharegpt.com/api?q=" + encodeURIComponent(x) + "&sys=" + encodeURIComponent(sys));
+  let j=await r.json();letj=awaitr.json();
+  add添加('ai',j.ans答案||'想你啦🥺');
+}
+
+function函数 add添加(t,s){
+  let让 d=document文档.createElement('div');let d=document文档.createElement('div');
+  d.className=t;
+  d.innerHTML='<span>'+s+'</span>';
+  c.appendChild(d);
+  c.scrollTop=c.scrollHeight;
+}
+</script>
+</body>
+</html>
